@@ -8,6 +8,7 @@ public class AbhaycharanApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AbhaycharanApplication.class, args);
+		System.out.println("Hare Krishna application is running!!");
 	}
 
 }

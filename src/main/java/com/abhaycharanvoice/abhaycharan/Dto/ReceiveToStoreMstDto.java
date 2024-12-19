@@ -1,6 +1,8 @@
 package com.abhaycharanvoice.abhaycharan.Dto;
 
 import lombok.*;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class ReceiveToStoreMstDto {
     private String distributorId;
     private Long productId;
     private LocalDateTime createDate;
+    private LocalDate createdDate;
     private LocalDateTime updateDate;
     private Integer activeFlag;
     private List<ReceiveToStoreReceivedProductsDto> productsDetails;

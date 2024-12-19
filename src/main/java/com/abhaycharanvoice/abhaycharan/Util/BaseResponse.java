@@ -1,8 +1,6 @@
 package com.abhaycharanvoice.abhaycharan.Util;
 
-import com.abhaycharanvoice.abhaycharan.Dto.ProductInfoDto;
-import com.abhaycharanvoice.abhaycharan.Dto.ReceiveToStoreMstDto;
-import com.abhaycharanvoice.abhaycharan.Dto.SellingInfoDto;
+import com.abhaycharanvoice.abhaycharan.Dto.*;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.Getter;
@@ -20,4 +18,11 @@ public class BaseResponse {
     private ProductInfoDto productInfoDto;
     private List<ProductInfoDto> productInfoDtos;
     private SellingInfoDto sellingInfoDto;
+    private DamageStockMstDto damageMstDto;
+    private List<StockDetailsDto> stockDetailsDto;
+    private List<ReceiveToStoreMstDto> receiveMstDto;
+    private List<SellingInfoDto> sellingInfoDtoList;
+    private List<DamageStockMstDto> damageStockMstDtoList;
+    private List<DamageStockDetailDto> detailDtoList;
+    private StockDto stockDto;
 }

@@ -3,6 +3,7 @@ package com.abhaycharanvoice.abhaycharan.Model;
 import com.abhaycharanvoice.abhaycharan.Enum.InvoiceType;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class ReceiveToStoreMstModel {
     private InvoiceType invoiceType;
     private List<ReceiveToStoreProductsDetailsModel> productsDetails;
     private Integer activeFlag;
-    private LocalDateTime createdDate;
-    private LocalDateTime updatedDate;
+    private LocalDateTime createDate;
+    private LocalDate createdDate;
+    private LocalDateTime updateDate;
 }

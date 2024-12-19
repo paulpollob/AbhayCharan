@@ -7,6 +7,7 @@ import com.abhaycharanvoice.abhaycharan.Model.ProductInfoModel;
 import com.abhaycharanvoice.abhaycharan.Repository.ProductRepository;
 import com.abhaycharanvoice.abhaycharan.Service.ProductService;
 import com.abhaycharanvoice.abhaycharan.Util.BaseResponse;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -27,6 +28,7 @@ public class ProductServiceImpl implements ProductService {
         this.repo = repo;
     }
 
+    @Transactional
     @Override
     public BaseResponse addProduct(ProductInfoModel productInfoModel) {
         BaseResponse response = new BaseResponse();
@@ -46,7 +48,7 @@ public class ProductServiceImpl implements ProductService {
             response.setProductInfoDto(dto);
         } catch (Exception e) {
             response.setMessage(ResponseEnum.FAILED.getStatus());
-            log.info("Error in ReceiveToStoreServiceImpl.receiveToStore: "+e.getMessage());
+            log.info("Error in ProductServiceImpl.addProduct: "+e.getMessage());
         }
         return response;
     }
@@ -65,7 +67,7 @@ public class ProductServiceImpl implements ProductService {
             response.setProductInfoDtos(dtos);
         } catch (Exception e) {
             response.setMessage(ResponseEnum.FAILED.getStatus());
-            log.info("Error in ReceiveToStoreServiceImpl.receiveToStore: "+e.getMessage());
+            log.info("Error in ProductServiceImpl.findAllProduct: "+e.getMessage());
         }
 
         return response;
@@ -82,9 +84,49 @@ public class ProductServiceImpl implements ProductService {
             response.setProductInfoDto(dto);
         } catch (Exception e) {
             response.setMessage(ResponseEnum.FAILED.getStatus());
-            log.info("Error in ReceiveToStoreServiceImpl.receiveToStore: "+e.getMessage());
+            log.info("Error in ProductServiceImpl.findProduct: "+e.getMessage());
         }
 
         return response;
+    }
+
+    @Override
+    public BaseResponse updateProduct(ProductInfoModel productInfoModel) {
+        BaseResponse response = new BaseResponse();
+
+        if(productInfoModel.getProductCode()==null)
+        {
+            response.setMessage(ResponseEnum.FAILED.getStatus());
+            return response;
+        }
+
+        Optional<ProductInfo> productInfo = repo.findByProductCodeAndActiveFlag(productInfoModel.getProductCode(), 1);
+
+        productInfo = Optional.of(prepare(productInfo.get(), productInfoModel));
+        BeanUtils.copyProperties(productInfoModel, productInfo);
+        productInfo.get().setUpdatedTime(LocalDateTime.now());
+
+        try {
+            productInfo = Optional.of(repo.save(productInfo.get()));
+
+            ProductInfoDto dto = new ProductInfoDto();
+            BeanUtils.copyProperties(productInfo.get(), dto);
+
+            response.setMessage(ResponseEnum.SUCCESS.getStatus());
+            response.setProductInfoDto(dto);
+        } catch (Exception e) {
+            response.setMessage(ResponseEnum.FAILED.getStatus());
+            log.info("Error in ProductServiceImpl.updateProduct: "+e.getMessage());
+        }
+        return response;
+    }
+
+    private ProductInfo prepare(ProductInfo productInfo, ProductInfoModel productInfoModel){
+        if(productInfoModel.getProductName()!=null) productInfo.setProductName(productInfoModel.getProductName());
+        if(productInfoModel.getProductCode()!=null) productInfo.setProductCode(productInfoModel.getProductCode());
+        if(productInfoModel.getMrp()!=null) productInfo.setMrp(productInfoModel.getMrp());
+        if(productInfoModel.getTradePrice()!=null) productInfo.setTradePrice(productInfoModel.getTradePrice());
+        if(productInfoModel.getPackSize()!=null) productInfo.setPackSize(productInfoModel.getPackSize());
+        return productInfo;
     }
 }

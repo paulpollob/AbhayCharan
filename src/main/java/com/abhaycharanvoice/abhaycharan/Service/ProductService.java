@@ -8,4 +8,5 @@ public interface ProductService {
     BaseResponse addProduct(ProductInfoModel productInfo);
     BaseResponse findAllProduct();
     BaseResponse findProduct(String productCode);
+    BaseResponse updateProduct(ProductInfoModel productInfo);
 }

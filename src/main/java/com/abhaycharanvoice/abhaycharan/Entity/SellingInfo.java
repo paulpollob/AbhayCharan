@@ -3,6 +3,7 @@ package com.abhaycharanvoice.abhaycharan.Entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -27,7 +28,8 @@ public class SellingInfo {
     private String customerEmail;
     private Integer activeFlag;
     private LocalDateTime createdDate;
+    private LocalDate createOnlyDate;
     private LocalDateTime updatedDate;
-    @OneToMany(mappedBy = "sellingInfo", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "sellingInfo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<SellProductInfo> productInfo;
 }

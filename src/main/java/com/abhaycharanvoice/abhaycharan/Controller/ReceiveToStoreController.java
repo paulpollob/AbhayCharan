@@ -1,6 +1,7 @@
 package com.abhaycharanvoice.abhaycharan.Controller;
 
 import com.abhaycharanvoice.abhaycharan.Model.ReceiveToStoreMstModel;
+import com.abhaycharanvoice.abhaycharan.Model.Report.StockFilterInfo;
 import com.abhaycharanvoice.abhaycharan.Service.ReceiveToStoreService;
 import com.abhaycharanvoice.abhaycharan.Util.BaseResponse;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +23,12 @@ public class ReceiveToStoreController {
     @PostMapping("/receiveProducts")
     public ResponseEntity<BaseResponse> storeNewInvoice(@RequestBody ReceiveToStoreMstModel mstMdl){
         BaseResponse response = receiveToStoreService.receiveToStore(mstMdl);
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/getReceiveProducts")
+    public ResponseEntity<BaseResponse> getReceiveProducts(@RequestBody StockFilterInfo filterInfo){
+        BaseResponse response = receiveToStoreService.getReceiveProducts(filterInfo);
         return ResponseEntity.ok(response);
     }
 }

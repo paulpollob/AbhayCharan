@@ -5,7 +5,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class DamageStockMstModel {
+public class DamageStockDetailModel {
     private Long id;
     private String productCode;
     private String productName;

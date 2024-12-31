@@ -86,6 +86,7 @@ public class DamageStockServiceImpl implements DamageStockService {
             StockDetails stockDetail = new StockDetails();
             stockDetail.setProductCode(mst.getProductCode());
             stockDetail.setProductName(mst.getProductName());
+            stockDetail.setProductCategory(mst.getProductCategory());
             stockDetail.setPreviousStockQty(stock.get().getCurrentQty()+mst.getDamageQty());
             stockDetail.setCurrentStockQty(stock.get().getCurrentQty());
             stockDetail.setInvoiceType(InvoiceType.DAMAGE_TO_DISTRIBUTOR);

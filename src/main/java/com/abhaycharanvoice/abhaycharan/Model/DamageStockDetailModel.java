@@ -9,6 +9,7 @@ public class DamageStockDetailModel {
     private Long id;
     private String productCode;
     private String productName;
+    private String productCategory;
     private Integer damageQty;
     private Integer activeFlag;
     private String createdBy;

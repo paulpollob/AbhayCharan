@@ -78,6 +78,7 @@ public class ReceiveToStoreServiceImpl implements ReceiveToStoreService {
             StockDetails stockDetail = new StockDetails();
             stockDetail.setProductCode(dtl.getProductCode());
             stockDetail.setProductName(dtl.getProductName());
+            stockDetail.setProductCategory(dtl.getProductCategory());
             stockDetail.setPreviousStockQty(stock.get().getCurrentQty() - dtl.getProductReceivedQty());
             stockDetail.setCurrentStockQty(stock.get().getCurrentQty());
             stockDetail.setInvoiceType(InvoiceType.RECEIVED_FROM_DISTRIBUTOR);

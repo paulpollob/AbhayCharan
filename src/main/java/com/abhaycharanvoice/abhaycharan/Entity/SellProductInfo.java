@@ -15,6 +15,7 @@ public class SellProductInfo {
     private Long id;
     private String productCode;
     private String productName;
+    private String productCategory;
     private Integer sellingQty;
     private BigDecimal tradePrice;
     private BigDecimal mrp;

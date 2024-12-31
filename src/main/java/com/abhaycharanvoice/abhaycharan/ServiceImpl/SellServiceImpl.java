@@ -56,7 +56,6 @@ public class SellServiceImpl implements SellService {
 
         List<Stock> stocks = new ArrayList<>();
         List<StockDetails> stockDetails = new ArrayList<>();
-//        sellingInfo.getProductInfo().forEach(info->
         for(SellProductInfo info:sellingInfo.getProductInfo())
         {
             Optional<Stock> stock = stockRepo.findTopByProductCodeAndActiveFlagOrderByUpdatedTimeDesc(info.getProductCode(), 1);
@@ -89,6 +88,7 @@ public class SellServiceImpl implements SellService {
             StockDetails stockDetail = new StockDetails();
             stockDetail.setProductCode(info.getProductCode());
             stockDetail.setProductName(info.getProductName());
+            stockDetail.setProductCategory(info.getProductCategory());
             stockDetail.setPreviousStockQty(stock.get().getCurrentQty()+info.getSellingQty());
             stockDetail.setCurrentStockQty(stock.get().getCurrentQty());
             stockDetail.setInvoiceType(InvoiceType.DAMAGE_TO_DISTRIBUTOR);

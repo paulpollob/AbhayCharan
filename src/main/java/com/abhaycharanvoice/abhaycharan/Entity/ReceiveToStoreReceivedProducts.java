@@ -16,6 +16,7 @@ public class ReceiveToStoreReceivedProducts {
     private Long id;
     private String productCode;
     private String productName;
+    private String productCategory;
     private Integer productReceivedQty;
     private Integer productReturnedQty;
     private String productSize;

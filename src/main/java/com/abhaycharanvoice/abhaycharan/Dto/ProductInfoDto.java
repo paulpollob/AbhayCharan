@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 public class ProductInfoDto {
     private String productCode;
     private String productName;
+    private String productCategory;
     private String productSize;
     private String packSize;
     private Integer productQty;

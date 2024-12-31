@@ -41,7 +41,22 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-<!--		<dependency>-->
+
+		<dependency>
+			<groupId>com.opentable.components</groupId>
+			<artifactId>otj-pg-embedded</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.zonky.test</groupId>
+			<artifactId>embedded-database-spring-test</artifactId>
+			<version>2.5.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<!--		<dependency>-->
 <!--			<groupId>org.springdoc</groupId>-->
 <!--			<artifactId>springdoc-openapi-ui</artifactId>-->
 <!--			<version>1.7.0</version> &lt;!&ndash; Replace with the latest version &ndash;&gt;-->

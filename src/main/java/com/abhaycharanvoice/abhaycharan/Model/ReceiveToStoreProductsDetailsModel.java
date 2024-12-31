@@ -11,6 +11,7 @@ public class ReceiveToStoreProductsDetailsModel {
     private Long id;
     private String productCode;
     private String productName;
+    private String productCategory;
     private Integer productReceivedQty;
     private Integer productReturnQty;
     private String productSize;

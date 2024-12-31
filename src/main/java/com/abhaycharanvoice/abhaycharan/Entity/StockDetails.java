@@ -17,6 +17,7 @@ public class StockDetails {
     private Long id;
     private String productCode;
     private String productName;
+    private String productCategory;
     private Integer packSize;
     private Integer previousStockQty;
     private Integer currentStockQty;

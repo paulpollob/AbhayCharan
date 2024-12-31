@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 public class SellProductInfoDto {
     private String productCode;
     private String productName;
+    private String productCategory;
     private Integer sellingQty;
     private BigDecimal tradePrice;
     private BigDecimal mrp;

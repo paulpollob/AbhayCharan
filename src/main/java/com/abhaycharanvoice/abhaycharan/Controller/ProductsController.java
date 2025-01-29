@@ -28,12 +28,14 @@ public class ProductsController {
 
     @PostMapping("/addProduct/")
     public ResponseEntity<BaseResponse> addProduct(@RequestBody ProductInfoModel productInfo) {
+        System.out.println(productInfo);
         BaseResponse response = productService.addProduct(productInfo);
         return ResponseEntity.ok(response);
     }
 
     @PostMapping("/updateProduct/")
     public ResponseEntity<BaseResponse> updateProduct(@RequestBody ProductInfoModel productInfo) {
+        System.out.println(productInfo);
         BaseResponse response = productService.updateProduct(productInfo);
         return ResponseEntity.ok(response);
     }

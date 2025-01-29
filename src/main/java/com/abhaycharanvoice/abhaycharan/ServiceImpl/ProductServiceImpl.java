@@ -127,6 +127,7 @@ public class ProductServiceImpl implements ProductService {
         if(productInfoModel.getMrp()!=null) productInfo.setMrp(productInfoModel.getMrp());
         if(productInfoModel.getTradePrice()!=null) productInfo.setTradePrice(productInfoModel.getTradePrice());
         if(productInfoModel.getPackSize()!=null) productInfo.setPackSize(productInfoModel.getPackSize());
+        if(productInfoModel.getProductCategory()!=null) productInfo.setProductCategory(productInfoModel.getProductCategory());
         return productInfo;
     }
 }
